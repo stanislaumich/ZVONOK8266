@@ -12,7 +12,7 @@
 #endif //#ifdef Lz428266
 
 #ifdef Lz428266YE
- String myID="";
+ String myID="1009154974";
  String myName="Lz428266YE";
  String myToken="1009154974:AAH10HBoPPbVbUvyainn_UyDmGve3YEZNEQ";
  #ifdef home
@@ -35,6 +35,17 @@
  #endif
 #endif // #ifdef Lz428266ZV
 
+#ifdef Lz428266VFD
+ String myID="686030737";
+ String myName="Lz428266VFD";
+ String myToken="686030737:AAGN2_GY_wem10zGwNWYP7KyajTta5qpb2Y";
+  #ifdef home
+  IPAddress ip(192,168,1,235); 
+ #endif
+ #ifdef work
+  IPAddress ip(192,168,0,235);
+ #endif
+#endif // #ifdef Lz428266VFD
 
 #ifdef home
 #ifndef STASSID
@@ -44,8 +55,8 @@
  
 IPAddress gateway(192,168,1,1);
 IPAddress subnet(255,255,255,0);
-IPAddress dns1(194,158,196,206);
-IPAddress dns2(194,158,196,205);
+IPAddress dns1(1,1,1,1);
+IPAddress dns2(8,8,8,8);
 #endif
 #ifdef work
 #ifndef STASSID

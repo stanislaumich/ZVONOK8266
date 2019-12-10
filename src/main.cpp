@@ -1,4 +1,7 @@
-#define Lz428266YE // Zvonok
+//#define Lz428266YE // Zvonok
+//#define Lz428266YE // YELLOW
+#define Lz428266VFD // VFD
+
 #include <Arduino.h>
 #include <TickerScheduler.h>
 #ifndef common
@@ -23,6 +26,14 @@
  #include "nodisplay.h"
  #endif
 #endif //Lz428266YE
+#ifdef Lz428266VFD 
+#ifndef myTime
+ #include "myTime.h"
+ #endif
+#ifndef myVFD
+ #include "myVFD.h"
+ #endif
+#endif //Lz428266VFD
 
 #ifndef mySSDP
  #include "mySSDP.h"
@@ -47,6 +58,26 @@ void ticktime(){
   year = rtc.now().year();
  #endif
  #ifdef Lz428266YE
+  sec = sec + 1;
+  mins = mins + 1;
+  if(mins==60){
+    mins = 0;
+    hour = hour + 1;
+  }
+  if (hour==24){
+    hour = 0;
+  }
+  if (hour%2==0){
+   syncgood = GetNTP();
+   if (syncgood){
+    mins = ( ntp_time / 60 ) % 60;
+    hour = ( ntp_time / 3600 ) % 24;
+    sec=ntp_time % 60;
+    wd=(ntp_time/60/60/24+4)%7;  
+   }
+  }
+ #endif
+ #ifdef Lz428266VFD
   sec = sec + 1;
   mins = mins + 1;
   if(mins==60){
