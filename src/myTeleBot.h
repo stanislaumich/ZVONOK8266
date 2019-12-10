@@ -35,8 +35,7 @@ String sendtobot(String ch_id, String mess){
 
 String millis2time();
 
-void answerbot(String chat_id, String text){
-  
+void answerbot(String chat_id, String text){  
   text.remove(0,1);
   int p = text.indexOf('=');
   String name = text.substring(0, p);
