@@ -1,7 +1,9 @@
 #define lcd1602
+#ifdef Lz428266ZV
 #ifndef myRTC
  #include "myRTC.h"
  #endif
+#endif 
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 uint8_t s1[8] =
@@ -46,7 +48,7 @@ uint8_t s4[8] =
 };
 
 
-void initlcd1602(){
+void initLCD1602(){
   lcd.begin(5, 4);
   lcd.createChar(1, s1);  lcd.createChar(2, s2);
   lcd.createChar(3, s3);  lcd.createChar(4, s4);

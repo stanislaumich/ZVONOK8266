@@ -16,9 +16,11 @@
 #ifndef defs
  #include "defs.h"
  #endif
+#ifdef Lz428266ZV 
 #ifndef myRTC
  #include "myRTC.h"
  #endif
+#endif 
 #ifndef mySSDP
   #include"mySSDP.h"
  #endif 

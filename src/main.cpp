@@ -7,12 +7,14 @@
 #ifndef defs
  #include "defs.h"
  #endif
+#ifdef Lz428266ZV 
 #ifndef myRTC
  #include "myRTC.h"
  #endif
 #ifndef lcd1602
  #include "lcd1602.h"
  #endif
+#endif
 #ifndef mySSDP
  #include "mySSDP.h"
  #endif
@@ -24,8 +26,11 @@ TickerScheduler ts(2); // количество задач
 
 void setup(){
   initCommon();
-  initRTC();
-  initlcd1602();
+  #ifdef Lz428266ZV
+   initRTC();
+   initLCD1602();
+  #endif
+  initWiFi();
   initSSDP();
   initWeb();
 

@@ -2,7 +2,7 @@
 #include "Sodaq_DS3231.h"
 #ifndef defs
  #include "defs.h"
- #endif
+#endif
 #include <WiFiUdp.h>
 
 //DateTime dt(2016, 12, 02, 12, 03, 0, 5);
