@@ -8,7 +8,8 @@
  #endif
 #include <EEPROM.h>
 
-#define pinbeep 2
+
+
 
 uint8_t hour;
 uint8_t mins;

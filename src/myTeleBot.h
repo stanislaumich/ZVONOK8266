@@ -151,8 +151,10 @@ void handleNewMessages(int numNewMessages) {
     String text = bot.messages[i].text;
     from_name = bot.messages[i].from_name;
     if (from_name == "") from_name = "UNKNOWN";
-    execCommand(chat_id,text);
-  }
+    if (text[0]!='='){
+      bot.sendMessage(chat_id, execCommand(chat_id,text), "");      
+    }
+   }
  } 
 
 void MyTeleBotInit(void){
