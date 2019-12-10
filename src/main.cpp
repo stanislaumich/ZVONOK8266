@@ -1,7 +1,7 @@
 //#define Lz428266YE // Zvonok
 //#define Lz428266YE // YELLOW
-#define Lz428266VFD // VFD
-
+//#define Lz428266VFD // VFD
+#define Lz428266WR // work, uno+8266
 #include <Arduino.h>
 #include <TickerScheduler.h>
 #ifndef common
@@ -10,37 +10,47 @@
 #ifndef defs
  #include "defs.h"
  #endif
+
+
 #ifdef Lz428266ZV 
-#ifndef myRTC
- #include "myRTC.h"
- #endif
-#ifndef lcd1602
- #include "lcd1602.h"
- #endif
-#endif //Lz428266ZV
+ #ifndef myRTC
+  #include "myRTC.h"
+  #endif
+ #ifndef lcd1602
+  #include "lcd1602.h"
+  #endif
+ #endif //Lz428266ZV
 #ifdef Lz428266YE 
-#ifndef myTime
- #include "myTime.h"
- #endif
-#ifndef nodisplay
- #include "nodisplay.h"
- #endif
-#endif //Lz428266YE
+ #ifndef myTime
+  #include "myTime.h"
+  #endif
+ #ifndef nodisplay
+  #include "nodisplay.h"
+  #endif
+ #endif //Lz428266YE  
+#ifdef Lz428266WR 
+ #ifndef myTime
+  #include "myTime.h"
+  #endif
+ #ifndef nodisplay
+  #include "nodisplay.h"
+  #endif 
+ #endif //Lz428266WR
 #ifdef Lz428266VFD 
-#ifndef myTime
- #include "myTime.h"
- #endif
-#ifndef myVFD
- #include "myVFD.h"
- #endif
-#endif //Lz428266VFD
+ #ifndef myTime
+  #include "myTime.h"
+  #endif
+ #ifndef myVFD
+  #include "myVFD.h"
+  #endif
+ #endif //Lz428266VFD
 
 #ifndef mySSDP
  #include "mySSDP.h"
  #endif
 #ifndef myWeb 
-#include "myWebServer.h"
-#endif
+ #include "myWebServer.h"
+ #endif
 #ifndef MyTeleBot
   #include "myTeleBot.h"
  #endif  

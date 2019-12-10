@@ -5,10 +5,16 @@
 //String Esp32Clock="Lz42Esp32Clock";
 #define S868 "519049530"
 
-#ifdef Lz428266
+#ifdef Lz428266WR
  String myID="947749033";
  String myName="Lz42-8266";
- String Token="";
+ String myToken="947749033:AAF00_fgJ0JTYF2XsZE_0zbz-8aZwtdHb-M";
+ #ifdef home
+  IPAddress ip(192,168,1,238); 
+ #endif
+ #ifdef work
+  IPAddress ip(192,168,0,234);
+ #endif
 #endif //#ifdef Lz428266
 
 #ifdef Lz428266YE
