@@ -25,9 +25,9 @@ String from_name="";
 String execCommand(String chat_id, String text);
 
 String sendtobot(String ch_id, String mess){
-  String m="="+ch_id+"="+/*myID*/myName+"="+mess;
+  String m="="+ch_id+"="+myName+"="+mess;
   if(debug){
-   bot.sendMessage(myTele, m, "");
+   bot.sendMessage(myTele, "DEBUG>"+m, "");
   } 
   bot.sendMessage(S868, m, "");
   return m;
@@ -45,11 +45,12 @@ void answerbot(String chat_id, String text){
   text.trim();
   String mess="-? > "+text;
   mess = execCommand(chat_id,text);
-  sendtobot(name,mess);
+  sendtobot(name,mess);  
  }
 
 String execCommand(String chat_id, String text){
    String answ="";
+   //bot.sendMessage(myTele, text, "");
    if (text == "/b0") {
       //Button(0);
       answ="+Ok /b0";
@@ -151,9 +152,10 @@ void handleNewMessages(int numNewMessages) {
     String text = bot.messages[i].text;
     from_name = bot.messages[i].from_name;
     if (from_name == "") from_name = "UNKNOWN";
-    if (text[0]!='='){
+    //if (text[0]!='='){
       bot.sendMessage(chat_id, execCommand(chat_id,text), "");      
-    }
+    //}
+    //else{}
    }
  } 
 
