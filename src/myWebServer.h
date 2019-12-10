@@ -149,7 +149,7 @@ void handleFileList() {
  }
 
 void handle_Button() {
-  int state = httpServer.arg("state").toInt();
+  //int state = httpServer.arg("state").toInt();
   //Button(state);
   httpServer.sendHeader("Connection", "close");
   httpServer.send(200, "text/plain", "Ok");  

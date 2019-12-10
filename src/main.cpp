@@ -23,13 +23,12 @@
 #endif  
 TickerScheduler ts(2); // количество задач
 
-
 void setup(){
   initCommon();
-  #ifdef Lz428266ZV
+  #ifdef Lz428266ZV ///////////////////////////////////////////////////////
    initRTC();
    initLCD1602();
-  #endif
+  #endif //////////////////////////////////////////////////////////////////0
   initWiFi();
   initSSDP();
   initWeb();
