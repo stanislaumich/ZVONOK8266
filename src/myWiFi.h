@@ -4,6 +4,7 @@
 #ifndef defs
  #include "defs.h"
 #endif
+
 const char* ssid = STASSID;
 const char* password = STAPSK;
 

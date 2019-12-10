@@ -168,7 +168,7 @@ String alert_h(){
 
 String XmlTime(void) {
   String Time ="";
-  time_t t = rtc.now().get(); //DateTime
+  time_t t = ntp_time;//rtc.now().get(); //DateTime
   uint16_t m = ( t / 60 ) % 60;
   uint16_t h = ( t / 3600 ) % 24;
   Time+= (String)h+":";

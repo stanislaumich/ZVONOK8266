@@ -14,7 +14,8 @@ byte packetBuffer[NTP_PACKET_SIZE];
 IPAddress timeServer(132, 163, 4, 101);
 WiFiUDP Udp;
 unsigned int localPort = 8888;
-bool syncgood = false;
+
+
 
 String millis2time(){
   String Time="";

@@ -47,6 +47,10 @@ uint8_t s4[8] =
   B00000
 };
 
+void showtime(void){
+
+
+ }
 
 void initLCD1602(){
   lcd.begin(5, 4);
@@ -57,9 +61,14 @@ void initLCD1602(){
   lcd.setCursor(0, 1);   lcd.print("Device starts!");
 }
 
-void showtime(){
-
-
+void tickclock(void){
+ switch(cnt){
+    case 0: lcd.print("\2");cnt+=1;break;
+    case 1: lcd.print("\3");cnt+=1;break;
+    case 2: lcd.print("\4");cnt+=1;break;
+    case 3: lcd.print("\1");cnt+=1;break;
+    case 4: lcd.print("\2");cnt+=1; cnt=1;break;
+   }
 }
 /*
 while ((WiFi.status() != WL_CONNECTED)&&kk) {
