@@ -1,7 +1,7 @@
-//#define Lz428266YE // Zvonok
+#define Lz428266YE // Zvonok
 //#define Lz428266YE // YELLOW
 //#define Lz428266VFD // VFD
-#define Lz428266WR // work, uno+8266
+//#define Lz428266WR // work, uno+8266
 #include <Arduino.h>
 #include <TickerScheduler.h>
 #ifndef common
