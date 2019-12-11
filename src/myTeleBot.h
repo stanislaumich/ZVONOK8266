@@ -141,8 +141,8 @@ String execCommand(String chat_id, String text){
     */ 
     if (text == "/reboot") {
       String mess=F("+System is going to reboot NOW!");
-      //Treboot.setInterval(60*1000);
-      //Treboot.start();
+      Treboot.setInterval(60*1000);
+      Treboot.start();
       answ="+Ok system is going to reboot after 1 minute";
     }
 

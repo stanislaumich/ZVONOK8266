@@ -11,9 +11,9 @@
 
 #define updint 1000
 
-//GTimer_ms Tticktime(updint);
-//GTimer_ms Ttickclock(250);
-//GTimer_ms Treboot(250000);
+GTimer_ms Tticktime(updint);
+GTimer_ms Ttickclock(250);
+GTimer_ms Treboot(250000);
 
 uint8_t hour;
 uint8_t mins;
