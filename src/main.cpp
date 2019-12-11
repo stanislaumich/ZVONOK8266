@@ -1,7 +1,7 @@
-//#define Lz428266YE // Zvonok
-//#define Lz428266YE // YELLOW
+//#define Lz428266ZV // Zvonok
+#define Lz428266YE // YELLOW
 //#define Lz428266VFD // VFD
-#define Lz428266WR // work, uno+8266
+//#define Lz428266WR // work, uno+8266
 #include <Arduino.h>
 
 #ifndef common
@@ -24,8 +24,8 @@
  #ifndef myTime
   #include "myTime.h"
   #endif
- #ifndef nodisplay
-  #include "nodisplay.h"
+ #ifndef mySSD1306
+  #include "mySSD1306.h"
   #endif
  #endif //Lz428266YE  
 #ifdef Lz428266WR 
@@ -88,6 +88,9 @@ void setup(){
   #ifdef Lz428266ZV ///////////////////////////////////////////////////////
    initRTC();
    initLCD1602();
+  #endif //////////////////////////////////////////////////////////////////0
+  #ifdef Lz428266YE ///////////////////////////////////////////////////////
+   initmySSD1306();
   #endif //////////////////////////////////////////////////////////////////0
   beep(125,50);
   Ttickclock.stop();

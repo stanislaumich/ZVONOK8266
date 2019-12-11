@@ -27,7 +27,8 @@ bool syncgood = false;
 volatile int cnt = 0;
 
 void beep(int t1,int t2){
- unsigned long h;
+  #ifdef pinbeep
+  unsigned long h;
   h=millis();
   while (millis()-h<t1){
    digitalWrite(pinbeep,HIGH);
@@ -35,6 +36,7 @@ void beep(int t1,int t2){
    digitalWrite(pinbeep,LOW);
    delayMicroseconds(t2);
   }
+  #endif
  }
 
 void mLog(String s){

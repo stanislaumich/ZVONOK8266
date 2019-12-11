@@ -21,7 +21,7 @@
  String myID="1009154974";
  String myName="Lz428266YE";
  String myToken="1009154974:AAH10HBoPPbVbUvyainn_UyDmGve3YEZNEQ";
- #define pinbeep D2
+ //#define pinbeep 13
  #ifdef home
   IPAddress ip(192,168,1,237); 
  #endif
