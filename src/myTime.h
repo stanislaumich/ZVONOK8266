@@ -8,9 +8,10 @@
 #ifndef MyTeleBot
   #include "myTeleBot.h"
  #endif
+#include <NTPClient.h> 
 #include <WiFiUdp.h>
-#include <EEPROM.h>
-
+//#include <EEPROM.h>
+/*
 unsigned long localPort = 2390;  
 unsigned long ntp_time = 0;
 long  t_correct        = 0;
@@ -140,27 +141,10 @@ bool GetNTP(void) {
 
 
 void clok() {
-  cur_ms       = millis();
-  t_cur        = cur_ms / 1000;
-  // Каждые 60 секунд считываем время в интернете
-  if ( cur_ms < ms2 || (cur_ms - ms2) > 60000 ) {
-    err_count++;
-    // Делаем три  попытки синхронизации с интернетом
-    if ( GetNTP() ) {
-      ms2       = cur_ms;
-      err_count = 0;
-      t_correct = ntp_time - t_cur;
-    }
-  }
-  if ( cur_ms < ms1 || (cur_ms - ms1) > 500 ) {
-    ms1 = cur_ms;
-    ntp_time    = t_cur + t_correct;
+    GetNTP();
     mins = ( ntp_time / 60 ) % 60;
     hour = ( ntp_time / 3600 ) % 24;
     sec=ntp_time % 60;
-    points = !points;
-   }
-   DisplayTime();  
  }
 
 
@@ -172,8 +156,36 @@ void goSerialTime(void){
     Serial.println(sec);    
    }
  }
+*/
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 3600*3, 60000); 
+unsigned long ntp_time = 0;
 
-void MyTimeInit(void){
-     udp.begin(localPort);
+String millis2time(){
+  String Time="";
+  unsigned long ss;
+  byte mm,hh;
+  ss=millis()/1000;
+  hh=ss/3600;
+  mm=(ss-hh*3600)/60;
+  ss=(ss-hh*3600)-mm*60;
+  if(hh<10)Time+="0";
+  Time+=(String)hh+":";
+  if(mm<10)Time+="0";
+  Time+=(String)mm+":";
+  if(ss<10)Time+="0";
+  Time+=(String)ss;
+  return Time;
+ }
+
+void timeTick(void){
+  timeClient.update(); 
+ }
+
+String getTimestr(void){
+ return timeClient.getFormattedTime(); 
+ }
+void myTimeInit(void){
+     timeClient.begin();
 }
 

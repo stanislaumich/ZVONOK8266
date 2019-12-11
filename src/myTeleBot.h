@@ -6,6 +6,11 @@
 #ifndef defs
   #include "defs.h"
  #endif 
+#ifdef Lz428266WR
+ #ifndef myTime
+   #include "myTime.h"
+  #endif
+ #endif
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 #include <UniversalTelegramBot.h>
@@ -23,6 +28,7 @@ int ledStatus = 0;
 volatile bool debug=1;
 String from_name="";
 String execCommand(String chat_id, String text);
+String getTimestr(void);
 
 String sendtobot(String ch_id, String mess){
   String m="="+ch_id+"="+myName+"="+mess;
@@ -65,6 +71,11 @@ String execCommand(String chat_id, String text){
       //Button(1);
       answ="+Ok /b1";
     }
+
+    if (text=="/t"){
+      //answ = "+Ok "+hour+(String)":"+mins+(String)":"+sec+(String)" "+day+(String)"."+month+(String)"."+year+(String)" "+wd;
+      answ = "+Ok "+getTimestr();    
+      }
 
     if (text == "/b2") {
       //Button(2);

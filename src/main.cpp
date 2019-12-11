@@ -68,45 +68,14 @@ void ticktime(){
   year = rtc.now().year();
  #endif
  #ifdef Lz428266YE
-  sec = sec + 1;
-  mins = mins + 1;
-  if(mins==60){
-    mins = 0;
-    hour = hour + 1;
-  }
-  if (hour==24){
-    hour = 0;
-  }
-  if (hour%2==0){
-   syncgood = GetNTP();
-   if (syncgood){
-    mins = ( ntp_time / 60 ) % 60;
-    hour = ( ntp_time / 3600 ) % 24;
-    sec=ntp_time % 60;
-    wd=(ntp_time/60/60/24+4)%7;  
-   }
-  }
+   timeClient.update();
  #endif
  #ifdef Lz428266VFD
-  sec = sec + 1;
-  mins = mins + 1;
-  if(mins==60){
-    mins = 0;
-    hour = hour + 1;
-  }
-  if (hour==24){
-    hour = 0;
-  }
-  if (hour%2==0){
-   syncgood = GetNTP();
-   if (syncgood){
-    mins = ( ntp_time / 60 ) % 60;
-    hour = ( ntp_time / 3600 ) % 24;
-    sec=ntp_time % 60;
-    wd=(ntp_time/60/60/24+4)%7;  
-   }
-  }
+   timeClient.update();
  #endif
+ #ifdef Lz428266WR
+  timeClient.update();
+ #endif 
  showtime();
 }
 
