@@ -7,13 +7,13 @@
  #include "defs.h"
  #endif
 #include <EEPROM.h>
-#include "GyverTimer.h"
+//#include "GyverTimer.h"
 
 #define updint 1000
 
-GTimer_ms Tticktime(updint);
-GTimer_ms Ttickclock(250);
-GTimer_ms Treboot(250000);
+//GTimer_ms Tticktime(updint);
+//GTimer_ms Ttickclock(250);
+//GTimer_ms Treboot(250000);
 
 uint8_t hour;
 uint8_t mins;
@@ -40,11 +40,11 @@ void beep(int t1,int t2){
  }
 
 void mLog(String s){
-  Serial.println(s);
+  //Serial.println(s);
  }
 
 void initCommon(void){
-  Serial.begin(115200);
+  //Serial.begin(115200);
   EEPROM.begin(512);
   #ifdef pinbeep
     pinMode(pinbeep,OUTPUT);

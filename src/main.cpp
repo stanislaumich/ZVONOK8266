@@ -57,7 +57,7 @@
 //TickerScheduler ts(3); // количество задач
 
 void showtime(void);
-
+unsigned long prev=0;
 void ticktime(){
  #ifdef Lz428266ZV
   hour = rtc.now().hour();
@@ -74,9 +74,16 @@ void ticktime(){
    timeClient.update();
  #endif
  #ifdef Lz428266WR
-  timeClient.update();
+  
  #endif 
- showtime();
+ //showtime();
+   display.clear();
+   display.setFont(Orbitron_Medium_20);
+   display.setTextAlignment(TEXT_ALIGN_LEFT);
+   ssd13str=timeClient.getHours()+":"+timeClient.getMinutes();
+   display.drawString(2, 4, ssd13str);
+   //display.drawString(2, 4,"12345678");
+   display.display();
 }
 
 void reboot(void){
@@ -93,8 +100,8 @@ void setup(){
    initmySSD1306();
   #endif //////////////////////////////////////////////////////////////////0
   beep(125,50);
-  Ttickclock.stop();
-  Treboot.stop();
+  //Ttickclock.stop();
+  //Treboot.stop();
   initWiFi();
   initTime();
   initSSDP();
@@ -107,9 +114,14 @@ void setup(){
  }
 
 void loop (){
- if (Tticktime.isReady()) ticktime();
- if (Ttickclock.isReady()) tickclock();
- if (Treboot.isReady()) reboot();
+ //if (Tticktime.isReady()) ticktime();
+ //if (Ttickclock.isReady()) tickclock();
+ //if (Treboot.isReady()) reboot();
  goBot();
  httpServer.handleClient();
+ unsigned long c=millis();
+ if (c-prev>1000){
+  timeClient.update();
+  showtime();
+ }
  }// TOTAL END ///////////////////////////////////////////////////////////////////////

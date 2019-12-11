@@ -15,7 +15,7 @@ void initWiFi(void){
   WiFi.begin(ssid, password);
   while (WiFi.waitForConnectResult() != WL_CONNECTED) {
     WiFi.begin(ssid, password);
-    Serial.println("WiFi failed, retrying...");
+    //Serial.println("WiFi failed, retrying...");
   }
  }
 

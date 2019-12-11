@@ -20,7 +20,7 @@
 
 SSD1306  display(OLED_ADDR, OLED_SDA, OLED_SDC);
 bool ssd1306ON = true;
-
+String ssd13str="";
 void clrscr(void){
  display.clear();
  } 
@@ -34,7 +34,6 @@ void screenon(void){
  }
 
 void tickclock(void){
-
   
  }
 
@@ -42,8 +41,8 @@ void showtime(void){
    display.clear();
    display.setFont(Orbitron_Medium_20);
    display.setTextAlignment(TEXT_ALIGN_LEFT);
-   String tempstr=timeClient.getHours()+":"+timeClient.getMinutes();
-   display.drawString(2, 4, tempstr);
+   ssd13str=timeClient.getHours()+":"+timeClient.getMinutes();
+   display.drawString(2, 4, ssd13str);
    //display.drawString(2, 4,"12345678");
    display.display();
 }

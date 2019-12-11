@@ -30,7 +30,7 @@ File fsUploadFile;
 String XML;
 
 void Log(String s){
-  Serial.println(s);
+  //Serial.println(s);
  }
 
 String getContentType(String filename) {
@@ -56,7 +56,7 @@ void handlebeep(void){
   beep(httpServer.arg("t1").toInt(),httpServer.arg("t2").toInt());
   httpServer.sendHeader("Connection", "close");
   httpServer.send(200, "text/plain", "Ok beep ");
-  Serial.println("Beep"); 
+  //Serial.println("Beep"); 
  } 
 
 bool handleFileRead(String path) {  
@@ -259,5 +259,5 @@ void initWeb(void){
       httpServer.send(404, "text/plain", "FileNotFound");      
   });
   httpServer.begin();
-  Serial.print("HTTPUpdateServer ready! Open http://IP/update in your browser\n");
+  //Serial.print("HTTPUpdateServer ready! Open http://IP/update in your browser\n");
  }
