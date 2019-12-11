@@ -33,7 +33,7 @@ String getTimestr(void);
 String sendtobot(String ch_id, String mess){
   String m="="+ch_id+"="+myName+"="+mess;
   if(debug){
-   bot.sendMessage(myTele, "DEBUG>"+m, "");
+   //bot.sendMessage(myTele, "DEBUG>"+m, "");
   } 
   bot.sendMessage(S868, m, "");
   return m;
@@ -42,21 +42,25 @@ String sendtobot(String ch_id, String mess){
 String millis2time();
 
 void answerbot(String chat_id, String text){  
-  text.remove(0,1);
-  int p = text.indexOf('=');
-  String name = text.substring(0, p);
-  text.remove(0,p+1);
-  p = text.indexOf('=');
-  text.remove(0,p+1);
-  text.trim();
   String mess="-? > "+text;
-  mess = execCommand(chat_id,text);
-  sendtobot(name,mess);  
+  if(text.indexOf("=")==0){
+    text.remove(0,1);
+    int p = text.indexOf('=');
+    String name = text.substring(0, p);
+    text.remove(0,p+1);
+    p = text.indexOf('=');
+    name = text.substring(0,p);
+    text.remove(0,p+1);
+    text.trim();
+    sendtobot(name, execCommand(chat_id,text));
+   }
+   else{
+    bot.sendMessage(chat_id,execCommand(chat_id,text));
+   }  
  }
 
 String execCommand(String chat_id, String text){
-   String answ="";
-   //bot.sendMessage(myTele, text, "");
+   String answ="? - > "+text;
    if (text == "/b0") {
       //Button(0);
       answ="+Ok /b0";
@@ -81,7 +85,7 @@ String execCommand(String chat_id, String text){
       //Button(2);
       answ="+Ok /b2";
     }
-
+    /*
     if (text.indexOf("=")==0) {
       answerbot(chat_id, text);      
     }
@@ -108,6 +112,8 @@ String execCommand(String chat_id, String text){
     } 
 
     if (text == "/beep") {
+      //pinbeep=1;
+
       beep(250,125);
       answ="+Ok /beep";
     }
@@ -163,10 +169,11 @@ void handleNewMessages(int numNewMessages) {
     String text = bot.messages[i].text;
     from_name = bot.messages[i].from_name;
     if (from_name == "") from_name = "UNKNOWN";
-    //if (text[0]!='='){
-      bot.sendMessage(chat_id, execCommand(chat_id,text), "");      
-    //}
-    //else{}
+    if (debug){
+      bot.sendMessage(myTele, "D:>"+text, "");      
+    }
+    answerbot(chat_id,text);
+    //execCommand(chat_id, text);
    }
  } 
 

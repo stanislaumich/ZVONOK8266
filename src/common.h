@@ -40,5 +40,8 @@ void mLog(String s){
 void initCommon(void){
   Serial.begin(115200);
   EEPROM.begin(512);
+  #ifdef pinbeep
+    pinMode(pinbeep,OUTPUT);
+   #endif
  }
 

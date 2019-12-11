@@ -79,13 +79,13 @@ void ticktime(){
  showtime();
 }
 
-void setup(){
-  beep(125,50);
+void setup(){  
   initCommon();
   #ifdef Lz428266ZV ///////////////////////////////////////////////////////
    initRTC();
    initLCD1602();
   #endif //////////////////////////////////////////////////////////////////0
+  beep(125,50);
   initWiFi();
   initSSDP();
   initWeb();
