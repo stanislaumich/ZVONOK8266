@@ -93,6 +93,7 @@ void setup(){
   Ttickclock.stop();
   Treboot.stop();
   initWiFi();
+  initTime();
   initSSDP();
   initWeb();
   MyTeleBotInit();
@@ -106,8 +107,6 @@ void loop (){
  if (Tticktime.isReady()) ticktime();
  if (Ttickclock.isReady()) tickclock();
  if (Treboot.isReady()) reboot();
-
-  
  goBot();
  httpServer.handleClient();
  }// TOTAL END ///////////////////////////////////////////////////////////////////////

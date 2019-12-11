@@ -158,6 +158,7 @@ void goSerialTime(void){
  }
 */
 WiFiUDP ntpUDP;
+
 NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 3600*3, 60000); 
 unsigned long ntp_time = 0;
 
@@ -185,7 +186,7 @@ void timeTick(void){
 String getTimestr(void){
  return timeClient.getFormattedTime(); 
  }
-void myTimeInit(void){
+void initTime(void){
      timeClient.begin();
 }
 

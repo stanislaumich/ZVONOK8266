@@ -2,7 +2,6 @@
 #include "place.h"
 #include <ESP8266WiFi.h>
 #define myTele "357390016"
-//String Esp32Clock="Lz42Esp32Clock";
 #define S868 "519049530"
 
 #ifdef Lz428266WR

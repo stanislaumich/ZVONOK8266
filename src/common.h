@@ -9,7 +9,9 @@
 #include <EEPROM.h>
 #include "GyverTimer.h"
 
-GTimer_ms Tticktime(6*60*60*1000);
+#define updint 1000
+
+GTimer_ms Tticktime(updint);
 GTimer_ms Ttickclock(250);
 GTimer_ms Treboot(250000);
 

@@ -25,7 +25,7 @@ bool Start = false;
 const int ledPin = 13;
 int ledStatus = 0; 
 
-volatile bool debug=1;
+volatile bool debug=0;
 String from_name="";
 String execCommand(String chat_id, String text);
 String getTimestr(void);
@@ -142,7 +142,7 @@ String execCommand(String chat_id, String text){
     if (text == "/reboot") {
       String mess=F("+System is going to reboot NOW!");
       Treboot.setInterval(60*1000);
-      Treboot.reset();
+      Treboot.start();
       answ="+Ok system is going to reboot after 1 minute";
     }
 
