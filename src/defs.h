@@ -22,8 +22,9 @@
  String myID="1009154974";
  String myName="Lz428266YE";
  String myToken="1009154974:AAH10HBoPPbVbUvyainn_UyDmGve3YEZNEQ";
+ #define pinbeep D2
  #ifdef home
-  IPAddress ip(192,168,1,238); 
+  IPAddress ip(192,168,1,237); 
  #endif
  #ifdef work
   IPAddress ip(192,168,0,235);
