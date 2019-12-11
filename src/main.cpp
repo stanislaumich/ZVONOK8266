@@ -3,7 +3,7 @@
 //#define Lz428266VFD // VFD
 #define Lz428266WR // work, uno+8266
 #include <Arduino.h>
-#include <TickerScheduler.h>
+#include "GyverTimer.h"
 #ifndef common
  #include "common.h"
  #endif
@@ -54,7 +54,7 @@
 #ifndef MyTeleBot
   #include "myTeleBot.h"
  #endif  
-TickerScheduler ts(3); // количество задач
+//TickerScheduler ts(3); // количество задач
 
 void showtime(void);
 
@@ -79,6 +79,9 @@ void ticktime(){
  showtime();
 }
 
+GTimer_ms Tticktime(6*60*60*1000);
+GTimer_ms Ttickclock(250);
+
 void setup(){  
   initCommon();
   #ifdef Lz428266ZV ///////////////////////////////////////////////////////
@@ -86,21 +89,29 @@ void setup(){
    initLCD1602();
   #endif //////////////////////////////////////////////////////////////////0
   beep(125,50);
+  Ttickclock.stop();
   initWiFi();
   initSSDP();
   initWeb();
   MyTeleBotInit();
   bot.sendMessage(myTele, "Бот запущен: "+IP_to_String(WiFi.localIP()), "");
-  ts.add(0, 6*60*60*1000, [&](void *) { ticktime(); }, nullptr, true);// номер, период, задача, указатель, автозапустить
-  ts.add(1, 1000, [&](void *) { ticktime(); }, nullptr, true);
-  ts.add(2, 250, [&](void *) { tickclock(); }, nullptr, false);
+  //ts.add(0, 6*60*60*1000, [&](void *) { ticktime(); }, nullptr, true);// номер, период, задача, указатель, автозапустить
+  
+  //GTimer_ms myTimer3(1000);
+
+  //ts.add(1, 1000, [&](void *) { ticktime(); }, nullptr, true);
+  //ts.add(2, 250, [&](void *) { tickclock(); }, nullptr, false);
   beep(125,50);
   delay(50);
   beep(125,50); 
  }
 
 void loop (){
- ts.update(); // запускаем шедулер   
+ if (Tticktime.isReady()) ticktime();
+ if (Ttickclock.isReady()) tickclock();
+
+
+  
  goBot();
  httpServer.handleClient();
  }// TOTAL END ///////////////////////////////////////////////////////////////////////

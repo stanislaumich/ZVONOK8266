@@ -144,7 +144,10 @@ String execCommand(String chat_id, String text){
       //bot.sendMessage(chat_id, mess, "");
       //yield(2000);
       //ESP.restart(); //циклический ребут начинается - не отмечает сообщение
-      answ="+Ok /reboot";
+      unsigned long ttr=millis()+60*1000;
+      answ="+Ok system is going to reboot after 1 minute";
+      while (millis()<ttr){delay(1000);}
+      ESP.restart();
     }
 
     if (text == "/start") {

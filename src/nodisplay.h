@@ -9,6 +9,8 @@
   #include "myTeleBot.h"
  #endif 
 void tickclock(void){
+
+  
  }
 
  void showtime(void){
