@@ -123,5 +123,6 @@ void loop (){
  if (c-prev>1000){
   timeClient.update();
   showtime();
+  prev=c;
  }
  }// TOTAL END ///////////////////////////////////////////////////////////////////////
