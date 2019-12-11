@@ -7,7 +7,7 @@
  #include "defs.h"
  #endif
 #include <EEPROM.h>
-//#include "GyverTimer.h"
+#include "GyverTimer.h"
 
 #define updint 1000
 
