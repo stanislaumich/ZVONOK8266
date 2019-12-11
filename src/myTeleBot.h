@@ -141,13 +141,9 @@ String execCommand(String chat_id, String text){
     */ 
     if (text == "/reboot") {
       String mess=F("+System is going to reboot NOW!");
-      //bot.sendMessage(chat_id, mess, "");
-      //yield(2000);
-      //ESP.restart(); //циклический ребут начинается - не отмечает сообщение
-      unsigned long ttr=millis()+60*1000;
+      Treboot.setInterval(60*1000);
+      Treboot.reset();
       answ="+Ok system is going to reboot after 1 minute";
-      while (millis()<ttr){delay(1000);}
-      ESP.restart();
     }
 
     if (text == "/start") {

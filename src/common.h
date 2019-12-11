@@ -7,9 +7,11 @@
  #include "defs.h"
  #endif
 #include <EEPROM.h>
+#include "GyverTimer.h"
 
-
-
+GTimer_ms Tticktime(6*60*60*1000);
+GTimer_ms Ttickclock(250);
+GTimer_ms Treboot(250000);
 
 uint8_t hour;
 uint8_t mins;
