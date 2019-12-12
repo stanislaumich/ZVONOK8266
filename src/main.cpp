@@ -1,16 +1,13 @@
-//#define Lz428266ZV // Zvonok
-#define Lz428266YE // YELLOW
-//#define Lz428266VFD // VFD
-//#define Lz428266WR // work, uno+8266
 #include <Arduino.h>
-
+#ifndef place
+  #include "place.h"
+ #endif
 #ifndef common
  #include "common.h"
  #endif
 #ifndef defs
  #include "defs.h"
  #endif
-
 
 #ifdef Lz428266ZV 
  #ifndef myRTC
@@ -33,7 +30,7 @@
   #include "myTime.h"
   #endif
  #ifndef nodisplay
-  #include "nodisplay.h"
+   #include "nodisplay.h"
   #endif 
  #endif //Lz428266WR
 #ifdef Lz428266VFD 
@@ -54,7 +51,7 @@
 #ifndef MyTeleBot
   #include "myTeleBot.h"
  #endif  
-//TickerScheduler ts(3); // количество задач
+
 
 void showtime(void);
 unsigned long prev=0;
@@ -74,10 +71,9 @@ void ticktime(){
    timeClient.update();
  #endif
  #ifdef Lz428266WR
-  
+  timeClient.update();
  #endif 
- showtime();
-
+  showtime();
 }
 
 void reboot(void){
