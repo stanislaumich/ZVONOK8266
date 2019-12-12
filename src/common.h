@@ -30,7 +30,7 @@ void beep(int t1,int t2){
   #ifdef pinbeep
   unsigned long h;
   h=millis();
-  while (millis()-h<t1){
+  while (millis()-h<(unsigned int)(t1)){
    digitalWrite(pinbeep,HIGH);
    delayMicroseconds(t2);
    digitalWrite(pinbeep,LOW);

@@ -63,16 +63,14 @@ void ticktime(){
   day = rtc.now().date();
   month = rtc.now().month();
   year = rtc.now().year();
- #endif
- #ifdef Lz428266YE
-   timeClient.update();
- #endif
- #ifdef Lz428266VFD
-   timeClient.update();
- #endif
- #ifdef Lz428266WR
+  wd = rtc.now().weekday();
+ #else
   timeClient.update();
- #endif 
+  hour=timeClient.getHours();
+  mins=timeClient.getMinutes();
+  sec=timeClient.getSeconds();
+  wd=timeClient.getDay();
+ #endif
   showtime();
 }
 
@@ -84,20 +82,19 @@ void setup(){
   initCommon();
   Ttickclock.stop();
   Treboot.stop();
+  beep(125,50);
   initWiFi();
   initTime();
   #ifdef Lz428266ZV ///////////////////////////////////////////////////////
    initRTC();
    initLCD1602();
-  #endif //////////////////////////////////////////////////////////////////0
+  #endif //////////////////////////////////////////////////////////////////
   #ifdef Lz428266YE ///////////////////////////////////////////////////////
    initmySSD1306();
-  #endif //////////////////////////////////////////////////////////////////0
+  #endif //////////////////////////////////////////////////////////////////
   #ifdef Lz428266WR ///////////////////////////////////////////////////////
    initmyComDisplay();
-  #endif //////////////////////////////////////////////////////////////////0
-  beep(125,50); 
-  
+  #endif //////////////////////////////////////////////////////////////////  
   initSSDP();
   initWeb();
   MyTeleBotInit();

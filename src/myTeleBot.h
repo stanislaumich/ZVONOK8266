@@ -89,7 +89,6 @@ String execCommand(String chat_id, String text){
     if (text.indexOf("=")==0) {
       answerbot(chat_id, text);      
     }
-/*
     if (text.indexOf("/bud")==0) {
       String sa = getValue(text,' ',1);
       String mess="\n";
@@ -181,7 +180,7 @@ void MyTeleBotInit(void){
  } 
 
 void goBot(void){
-    if (millis() > Bot_lasttime + Bot_mtbs)  {
+    if (millis() > Bot_lasttime + (unsigned int)Bot_mtbs)  {
     int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
     while(numNewMessages) {
       //Serial.println("got response");

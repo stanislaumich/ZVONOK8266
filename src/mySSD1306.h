@@ -42,11 +42,11 @@ void showtime(void){
    display.setFont(Orbitron_Medium_20);
    display.setTextAlignment(TEXT_ALIGN_LEFT);
    //ssd13str=timeClient.getHours()+":"+timeClient.getMinutes();
-   hour = timeClient.getHours();
-   mins = timeClient.getMinutes();
-   sec =  timeClient.getSeconds();
+   //hour = timeClient.getHours();
+   //mins = timeClient.getMinutes();
+   //sec =  timeClient.getSeconds();
    //ssd13str = random(100000);
-   ssd13str = hour+String(":")+mins+String(":")+sec;
+   ssd13str = (hour<10?"0"+hour:hour)+String(":")+(mins<10?"0"+mins:mins)+String(":")+(sec<10?"0"+sec:sec);
    display.drawString(6, 4, ssd13str);
    //display.drawString(2, 4,"12345678");
    display.display();

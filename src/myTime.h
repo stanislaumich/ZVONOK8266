@@ -34,9 +34,7 @@ String millis2time(){
   return Time;
  }
 
-void timeTick(void){
-  timeClient.update(); 
- }
+
 String getTimestr(void){
  return timeClient.getFormattedTime(); 
  }
