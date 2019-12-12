@@ -1,7 +1,8 @@
 #ifndef mySSD1306
 #define mySSD1306
 #include "SSD1306.h"
-#include "font_orbitum_20.h"
+#include "font_orbitum_24.h"
+#define fnt Orbitron_Medium_24
 #ifndef defs
  #include "defs.h"
  #endif
@@ -39,14 +40,14 @@ void tickclock(void){
 
 void showtime(void){
    display.clear();
-   display.setFont(Orbitron_Medium_20);
+   display.setFont(fnt);
    display.setTextAlignment(TEXT_ALIGN_LEFT);
    //ssd13str=timeClient.getHours()+":"+timeClient.getMinutes();
    //hour = timeClient.getHours();
    //mins = timeClient.getMinutes();
    //sec =  timeClient.getSeconds();
    //ssd13str = random(100000);
-   ssd13str = (hour<10?"0"+hour:hour)+String(":")+(mins<10?"0"+mins:mins)+String(":")+(sec<10?"0"+sec:sec);
+   ssd13str = (hour<10?"0"+String(hour):String(hour))+String(":")+(mins<10?"0"+String(mins):String(mins))+String(":")+(sec<10?"0"+String(sec):String(sec));
    display.drawString(6, 4, ssd13str);
    //display.drawString(2, 4,"12345678");
    display.display();
@@ -56,11 +57,8 @@ void initmySSD1306(void){
   display.init();
   screenon();
   //display.flipScreenVertically();
-   display.setFont(Orbitron_Medium_20);
-   display.setTextAlignment(TEXT_ALIGN_CENTER);
-   
    display.clear();
-   display.setFont(Orbitron_Medium_20);
+   display.setFont(fnt);
    display.setTextAlignment(TEXT_ALIGN_LEFT);
    display.drawString(1, 4, "Start");
    display.display();

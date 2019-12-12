@@ -8,14 +8,7 @@
  #endif
 #include <EEPROM.h>
 #include "GyverTimer.h"
-/*
-place
-#define work
-//#define Lz428266ZV // Zvonok
-//#define Lz428266YE // YELLOW
-//#define Lz428266VFD // VFD
-#define Lz428266WR // work, uno+8266
-*/
+
 #undef Serialmy
 #define updint 1000
 
@@ -45,19 +38,19 @@ void Button(int b){
  switch(b){
   case 0: 
     #ifdef redpin
-     digitalRead(redpin, state);
+     state=digitalRead(redpin);
      digitalWrite(redpin,!state);
     #endif
     break;
   case 1: 
     #ifdef bluepin
-     digitalRead(bluepin, state);
+     state=digitalRead(bluepin);
      digitalWrite(bluepin,!state);
     #endif
     break;
   case 2: 
     #ifdef greenpin
-     digitalRead(greenpin, state);
+     state=digitalRead(greenpin);
      digitalWrite(greenpin,!state);
     #endif
     break;
