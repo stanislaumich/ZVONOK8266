@@ -55,6 +55,21 @@ void answerbot(String chat_id, String text){
     bot.sendMessage(chat_id,execCommand(chat_id,text));
    }  
  }
+ 
+String getValue(String data, char separator, int index){
+  // String part01 = getValue(application_command,';',0); 
+  int found = 0;
+  int strIndex[] = {0, -1};
+  int maxIndex = data.length()-1;
+  for(int i=0; i<=maxIndex && found<=index; i++){
+    if(data.charAt(i)==separator || i==maxIndex){
+        found++;
+        strIndex[0] = strIndex[1]+1;
+        strIndex[1] = (i == maxIndex) ? i+1 : i;
+    }
+  }
+  return found>index ? data.substring(strIndex[0], strIndex[1]) : "";
+ }  
 
 String execCommand(String chat_id, String text){
    String answ="? - > "+text;
@@ -85,23 +100,23 @@ String execCommand(String chat_id, String text){
     /*
     if (text.indexOf("=")==0) {
       answerbot(chat_id, text);      
-    }
+    }*/
     if (text.indexOf("/bud")==0) {
       String sa = getValue(text,' ',1);
       String mess="\n";
       if (sa=="?"){
-        int tph = getBud(0);
-        int tpm = getBud(1);        
-        mess+=String(tph)+":"+String(tpm);
+        int tph = getbud(0);
+        int tpm = getbud(1);        
+        mess+="is "+String(tph)+":"+String(tpm);
       }else{
       String sh = getValue(text,' ',1);
       String sm = getValue(text,' ',2);
-      setBud(sh.toInt(),sm.toInt());
-      mess+="+Установлено - "+sh+':'+sm;
+      setbud(sh.toInt(),sm.toInt());
+      mess+="set to "+sh+':'+sm;
       }
-      answ="+Ok /bud";
+      answ="+Ok /bud "+mess;
     }
-*/
+
     if (text == "/u") {
       answ="+Ok uptime: "+millis2time();
     } 

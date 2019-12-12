@@ -8,6 +8,8 @@
  #endif
 #include <EEPROM.h>
 #include "GyverTimer.h"
+#include <EEPROM.h>
+
 
 #undef Serialmy
 #define updint 1000
@@ -30,8 +32,41 @@ uint8_t day;
 uint8_t month;
 int year;
 bool syncgood = false;
-
+bool budactiv = false;
 volatile int cnt = 0;
+
+
+#define budlen 100
+#define budton 100
+#define budpause 200
+#define budcount 3
+void beep(int t1,int t2);
+
+void setbud(int ph,int pm){
+  EEPROM.write(0,ph);
+  EEPROM.write(1,pm);
+  EEPROM.commit();
+ } 
+
+int getbud(int p){
+  return EEPROM.read(p);
+ }
+
+
+void bud(void){
+ budactiv=true; 
+ for (int i=1;i<=budcount;i++){
+  beep(budlen,budton);
+  delay(budpause);
+ }
+ budactiv=false;
+}
+
+bool isbud(){
+  return getbud(0)==hour&&getbud(1)==mins&&sec<10;
+ }
+
+
 
 void Button(int b){
  int state;
@@ -55,7 +90,6 @@ void Button(int b){
     #endif
     break;
  }
-
  }
 
 void beep(int t1,int t2){
@@ -68,6 +102,7 @@ void beep(int t1,int t2){
    digitalWrite(pinbeep,LOW);
    delayMicroseconds(t2);
   }
+  digitalWrite(pinbeep,LOW);
   #endif
  }
 
@@ -84,6 +119,7 @@ void initCommon(void){
   EEPROM.begin(512);
   #ifdef pinbeep
     pinMode(pinbeep,OUTPUT);
+    digitalWrite(pinbeep,0);
    #endif
   #ifdef redpin
     pinMode(redpin,OUTPUT);
@@ -93,6 +129,6 @@ void initCommon(void){
    #endif
   #ifdef greenpin
     pinMode(greenpin,OUTPUT);
-   #endif   
+   #endif 
  }
 
