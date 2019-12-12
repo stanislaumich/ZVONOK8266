@@ -54,11 +54,15 @@ void showtime(void){
 
 void initLCD1602(){
   lcd.begin(5, 4);
-  lcd.createChar(1, s1);  lcd.createChar(2, s2);
-  lcd.createChar(3, s3);  lcd.createChar(4, s4);
+  lcd.createChar(1, s1);  
+  lcd.createChar(2, s2);
+  lcd.createChar(3, s3);  
+  lcd.createChar(4, s4);
   lcd.backlight();
-  lcd.setCursor(0, 0);   lcd.print("Hello!");
-  lcd.setCursor(0, 1);   lcd.print("Device starts!");
+  lcd.setCursor(0, 0);   
+  lcd.print("Hello!");
+  lcd.setCursor(0, 1);   
+  lcd.print("Device starts!");
 }
 
 void tickclock(void){

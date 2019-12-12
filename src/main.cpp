@@ -29,8 +29,8 @@
  #ifndef myTime
   #include "myTime.h"
   #endif
- #ifndef nodisplay
-   #include "nodisplay.h"
+ #ifndef myComDisplay
+   #include "myComDisplay.h"
   #endif 
  #endif //Lz428266WR
 #ifdef Lz428266VFD 
@@ -82,6 +82,10 @@ void reboot(void){
 
 void setup(){  
   initCommon();
+  Ttickclock.stop();
+  Treboot.stop();
+  initWiFi();
+  initTime();
   #ifdef Lz428266ZV ///////////////////////////////////////////////////////
    initRTC();
    initLCD1602();
@@ -89,11 +93,11 @@ void setup(){
   #ifdef Lz428266YE ///////////////////////////////////////////////////////
    initmySSD1306();
   #endif //////////////////////////////////////////////////////////////////0
-  beep(125,50);
-  Ttickclock.stop();
-  Treboot.stop();
-  initWiFi();
-  initTime();
+  #ifdef Lz428266WR ///////////////////////////////////////////////////////
+   initmyComDisplay();
+  #endif //////////////////////////////////////////////////////////////////0
+  beep(125,50); 
+  
   initSSDP();
   initWeb();
   MyTeleBotInit();
@@ -109,10 +113,4 @@ void loop (){
  if (Treboot.isReady()) reboot();
  goBot();
  httpServer.handleClient();
- /*unsigned long c=millis();
- if (c-prev>1000){
-  timeClient.update();
-  showtime();
-  prev=c;
- }*/
  }// TOTAL END ///////////////////////////////////////////////////////////////////////
