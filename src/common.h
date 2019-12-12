@@ -36,10 +36,10 @@ bool budactiv = false;
 volatile int cnt = 0;
 
 
-#define budlen 100
-#define budton 100
+#define budlen 200
+#define budton 200
 #define budpause 200
-#define budcount 3
+#define budcount 5
 void beep(int t1,int t2);
 
 void setbud(int ph,int pm){
@@ -63,6 +63,7 @@ void bud(void){
 }
 
 bool isbud(){
+  if (getbud(0)==0&&getbud(1)==0){return false;}
   return getbud(0)==hour&&getbud(1)==mins&&sec<10;
  }
 
