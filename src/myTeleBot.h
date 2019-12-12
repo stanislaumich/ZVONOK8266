@@ -64,7 +64,7 @@ String execCommand(String chat_id, String text){
     
    if (text == "/d") {
       debug=!debug;
-      debug?answ="+ debug TRUE":answ="+ debug FALSE";
+      debug?answ="+ debug now TRUE":answ="+ debug now FALSE";
     }
 
     if (text == "/b1") {
@@ -73,7 +73,7 @@ String execCommand(String chat_id, String text){
 
     if (text=="/t"){
       //answ = "+Ok "+hour+(String)":"+mins+(String)":"+sec+(String)" "+day+(String)"."+month+(String)"."+year+(String)" "+wd;
-      answ = "+Ok "+getTimestr();    
+      answ = "+Ok time: "+getTimestr();    
       }
 
     if (text == "/b2") {
