@@ -1,8 +1,8 @@
 #ifndef mySSD1306
 #define mySSD1306
 #include "SSD1306.h"
-#include "font_orbitum_24.h"
-#define fnt Orbitron_Medium_24
+#include "font_orbitum_32.h"
+#define fnt Orbitron_Medium_32 //24 w secs
 #ifndef defs
  #include "defs.h"
  #endif
@@ -47,7 +47,8 @@ void showtime(void){
    //mins = timeClient.getMinutes();
    //sec =  timeClient.getSeconds();
    //ssd13str = random(100000);
-   ssd13str = (hour<10?"0"+String(hour):String(hour))+String(":")+(mins<10?"0"+String(mins):String(mins))+String(":")+(sec<10?"0"+String(sec):String(sec));
+   ssd13str = (hour<10?"0"+String(hour):String(hour))+String(":")+(mins<10?"0"+String(mins):String(mins));
+   //ssd13str = (hour<10?"0"+String(hour):String(hour))+String(":")+(mins<10?"0"+String(mins):String(mins))+String(":")+(sec<10?"0"+String(sec):String(sec));
    display.drawString(6, 4, ssd13str);
    //display.drawString(2, 4,"12345678");
    display.display();
