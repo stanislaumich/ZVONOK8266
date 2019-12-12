@@ -2,11 +2,13 @@
 #include "place.h"
 #include <ESP8266WiFi.h>
 #define myTele "357390016"
+#define LzName "Lz42Stas"
+
 #define S868 "519049530"
 
 #ifdef Lz428266WR
  String myID="947749033";
- String myName="Lz42-8266";
+ String myName="Lz428266WR";
  String myToken="947749033:AAF00_fgJ0JTYF2XsZE_0zbz-8aZwtdHb-M";
  #define pinbeep D2
  #ifdef home

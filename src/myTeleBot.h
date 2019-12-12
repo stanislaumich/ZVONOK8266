@@ -32,7 +32,7 @@ String getTimestr(void);
 
 String sendtobot(String ch_id, String mess){
   String m="="+ch_id+"="+myName+"="+mess;
-  bot.sendMessage(S868, m, "");
+  ch_id==LzName?bot.sendMessage(LzName, m, ""):bot.sendMessage(S868, m, "");
   return m;
 }
 
