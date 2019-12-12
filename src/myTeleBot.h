@@ -32,9 +32,6 @@ String getTimestr(void);
 
 String sendtobot(String ch_id, String mess){
   String m="="+ch_id+"="+myName+"="+mess;
-  if(debug){
-   //bot.sendMessage(myTele, "DEBUG>"+m, "");
-  } 
   bot.sendMessage(S868, m, "");
   return m;
 }
@@ -62,7 +59,6 @@ void answerbot(String chat_id, String text){
 String execCommand(String chat_id, String text){
    String answ="? - > "+text;
    if (text == "/b0") {
-      //Button(0);
       answ="+Ok /b0";
     }
     
@@ -72,7 +68,6 @@ String execCommand(String chat_id, String text){
     }
 
     if (text == "/b1") {
-      //Button(1);
       answ="+Ok /b1";
     }
 
@@ -82,7 +77,6 @@ String execCommand(String chat_id, String text){
       }
 
     if (text == "/b2") {
-      //Button(2);
       answ="+Ok /b2";
     }
     /*
@@ -106,18 +100,14 @@ String execCommand(String chat_id, String text){
     }
 */
     if (text == "/u") {
-      String mess="Uptime: "+millis2time();      
-      answ="+Ok "+mess;
+      answ="+Ok uptime: "+millis2time();
     } 
 
     if (text == "/beep") {
-      //pinbeep=1;
-
       beep(250,125);
       answ="+Ok /beep";
     }
     if (text == "/chat") {
-      beep(250,125);
       answ="+Ok /chat="+chat_id;
     }
     /*
@@ -171,7 +161,6 @@ void handleNewMessages(int numNewMessages) {
       bot.sendMessage(myTele, "D:>"+text, "");      
     }
     answerbot(chat_id,text);
-    //execCommand(chat_id, text);
    }
  } 
 
@@ -183,7 +172,6 @@ void goBot(void){
     if (millis() > Bot_lasttime + (unsigned int)Bot_mtbs)  {
     int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
     while(numNewMessages) {
-      //Serial.println("got response");
       handleNewMessages(numNewMessages);
       numNewMessages = bot.getUpdates(bot.last_message_received + 1);
     }

@@ -9,6 +9,7 @@
 #include <EEPROM.h>
 #include "GyverTimer.h"
 
+#undef Serialmy
 #define updint 1000
 
 GTimer_ms Tticktime(updint);
@@ -40,11 +41,15 @@ void beep(int t1,int t2){
  }
 
 void mLog(String s){
-  //Serial.println(s);
+  #ifdef Serialmy
+   Serial.println(s);
+  #endif 
  }
 
 void initCommon(void){
-  //Serial.begin(115200);
+   #ifdef Serialmy
+    Serial.begin(115200); 
+   #endif
   EEPROM.begin(512);
   #ifdef pinbeep
     pinMode(pinbeep,OUTPUT);

@@ -51,12 +51,9 @@ String getContentType(String filename) {
  }
 
 void handlebeep(void){
-  //int t1 = httpServer.arg("t1").toInt();
-  //int t2 = httpServer.arg("t2").toInt();
   beep(httpServer.arg("t1").toInt(),httpServer.arg("t2").toInt());
   httpServer.sendHeader("Connection", "close");
   httpServer.send(200, "text/plain", "Ok beep ");
-  //Serial.println("Beep"); 
  } 
 
 bool handleFileRead(String path) {  
