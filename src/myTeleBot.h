@@ -59,6 +59,7 @@ void answerbot(String chat_id, String text){
 String execCommand(String chat_id, String text){
    String answ="? - > "+text;
    if (text == "/b0") {
+       Button(0);
       answ="+Ok /b0";
     }
     
@@ -68,6 +69,7 @@ String execCommand(String chat_id, String text){
     }
 
     if (text == "/b1") {
+      Button(1);
       answ="+Ok /b1";
     }
 
@@ -77,6 +79,7 @@ String execCommand(String chat_id, String text){
       }
 
     if (text == "/b2") {
+      Button(2);
       answ="+Ok /b2";
     }
     /*
