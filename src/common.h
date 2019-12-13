@@ -1,10 +1,11 @@
+#ifndef common
 #define common
 #include <Arduino.h>
 #ifndef place
- #include "place.h"
+  #include "place.h"
  #endif
 #ifndef defs
- #include "defs.h"
+  #include "defs.h"
  #endif
 #include <EEPROM.h>
 #include "GyverTimer.h"
@@ -17,11 +18,9 @@
 GTimer_ms Tticktime(updint);
 GTimer_ms Ttickclock(250);
 GTimer_ms Treboot(250000);
-// 15 RED, 14 - рядом маленький 16 - рядом ещё ближе  13 - синий 12 зелёный
+
 #ifdef Lz428266YE
- #define redpin 15
- #define bluepin 13
- #define greenpin 12
+
 #endif
 
 uint8_t hour;
@@ -95,15 +94,15 @@ void Button(int b){
 
 void beep(int t1,int t2){
   #ifdef pinbeep
-  unsigned long h;
-  h=millis();
-  while (millis()-h<(unsigned int)(t1)){
-   digitalWrite(pinbeep,HIGH);
-   delayMicroseconds(t2);
+   unsigned long h;
+   h=millis();
+   while (millis()-h<(unsigned int)(t1)){
+    digitalWrite(pinbeep,HIGH);
+    delayMicroseconds(t2);
+    digitalWrite(pinbeep,LOW);
+    delayMicroseconds(t2);
+   }
    digitalWrite(pinbeep,LOW);
-   delayMicroseconds(t2);
-  }
-  digitalWrite(pinbeep,LOW);
   #endif
  }
 
@@ -132,4 +131,4 @@ void initCommon(void){
     pinMode(greenpin,OUTPUT);
    #endif 
  }
-
+#endif

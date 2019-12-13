@@ -1,3 +1,4 @@
+#ifndef defs
 #define defs
 #include "place.h"
 #include <ESP8266WiFi.h>
@@ -16,13 +17,19 @@
  #endif
  #ifdef work
   IPAddress ip(192,168,0,234);
- #endif
+ #endif  
+ #ifndef myComDisplay
+   #include "myComDisplay.h"
+  #endif 
 #endif //#ifdef Lz428266
 
 #ifdef Lz428266YE
  String myID="1009154974";
  String myName="Lz428266YE";
  String myToken="1009154974:AAH10HBoPPbVbUvyainn_UyDmGve3YEZNEQ";
+ #define redpin 15 // 15 RED, 14 - рядом маленький 16 - рядом ещё ближе  13 - синий 12 зелёный
+ #define bluepin 13
+ #define greenpin 12
  #define pinbeep 14
  #ifdef home
   IPAddress ip(192,168,1,237); 
@@ -30,6 +37,12 @@
  #ifdef work
   IPAddress ip(192,168,0,235);
  #endif
+  #ifndef myTime
+  #include "myTime.h"
+  #endif
+ #ifndef mySSD1306
+  #include "mySSD1306.h"
+  #endif
 #endif //#ifdef Lz428266YE
 
 #ifdef Lz428266ZV
@@ -42,6 +55,12 @@
  #ifdef work
   IPAddress ip(192,168,0,235);
  #endif
+  #ifndef myRTC
+  #include "myRTC.h"
+  #endif
+ #ifndef lcd1602
+  #include "lcd1602.h"
+  #endif
 #endif // #ifdef Lz428266ZV
 
 #ifdef Lz428266VFD
@@ -55,6 +74,12 @@
  #ifdef work
   IPAddress ip(192,168,0,235);
  #endif
+ #ifndef myTime
+   #include "myTime.h"
+  #endif
+ #ifndef myVFD
+  #include "myVFD.h"
+  #endif
 #endif // #ifdef Lz428266VFD
 
 #ifdef home
@@ -80,5 +105,5 @@ IPAddress dns1(194,158,196,137);
 IPAddress dns2(194,158,196,141);
 #endif 
 
-
+#endif
 

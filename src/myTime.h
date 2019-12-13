@@ -1,4 +1,8 @@
+#ifndef myTime
 #define myTime
+#ifndef defs
+  #include "defs.h"
+ #endif 
 #ifndef common
  #include "common.h"
 #endif 
@@ -41,4 +45,4 @@ String getTimestr(void){
 void initTime(void){
      timeClient.begin();
  }
-
+#endif

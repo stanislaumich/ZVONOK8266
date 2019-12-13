@@ -2,46 +2,12 @@
 #ifndef place
   #include "place.h"
  #endif
-#ifndef common
- #include "common.h"
- #endif
 #ifndef defs
  #include "defs.h"
  #endif
-
-#ifdef Lz428266ZV 
- #ifndef myRTC
-  #include "myRTC.h"
-  #endif
- #ifndef lcd1602
-  #include "lcd1602.h"
-  #endif
- #endif //Lz428266ZV
-#ifdef Lz428266YE 
- #ifndef myTime
-  #include "myTime.h"
-  #endif
- #ifndef mySSD1306
-  #include "mySSD1306.h"
-  #endif
- #endif //Lz428266YE  
-#ifdef Lz428266WR 
- #ifndef myTime
-  #include "myTime.h"
-  #endif
- #ifndef myComDisplay
-   #include "myComDisplay.h"
-  #endif 
- #endif //Lz428266WR
-#ifdef Lz428266VFD 
- #ifndef myTime
-  #include "myTime.h"
-  #endif
- #ifndef myVFD
-  #include "myVFD.h"
-  #endif
- #endif //Lz428266VFD
-
+#ifndef common
+ #include "common.h"
+ #endif
 #ifndef mySSDP
  #include "mySSDP.h"
  #endif

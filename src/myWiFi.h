@@ -1,6 +1,10 @@
+#ifndef myWiFi
 #define myWiFi
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
+#ifndef place
+ #include "place.h"
+#endif
 #ifndef defs
  #include "defs.h"
 #endif
@@ -41,3 +45,4 @@ IPAddress String_to_IP(String strIP){
  IPAddress ip_str( Parts[0], Parts[1], Parts[2], Parts[3] );
  return(ip_str);
  }
+#endif 

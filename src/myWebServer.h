@@ -24,6 +24,9 @@
 #ifndef mySSDP
   #include"mySSDP.h"
  #endif 
+ #ifndef myTime
+   #include "myTime.h"
+  #endif 
 ESP8266WebServer httpServer(80);
 ESP8266HTTPUpdateServer httpUpdater;
 File fsUploadFile;
