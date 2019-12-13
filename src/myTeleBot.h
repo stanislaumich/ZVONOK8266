@@ -125,6 +125,14 @@ String execCommand(String chat_id, String text){
       longbeep();
       answ="+Ok /beep";
     }
+    if (text == "/on") {
+      screenon();
+      answ="+Ok /on screen";
+    }
+    if (text == "/off") {
+      screenoff();
+      answ="+Ok /off screen";
+    }
     if (text == "/chat") {
       answ="+Ok /chat="+chat_id;
     }

@@ -20,5 +20,7 @@ void showtime(void){
 void initmyComDisplay(void){
 
  }
+void screenon(void){}
+void screenoff(void){}
 
 #endif //myComDisplay
