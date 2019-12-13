@@ -41,9 +41,9 @@ volatile int cnt = 0;
 #define budcount 5
 void beep(int t1,int t2);
 
-void setbud(int ph,int pm){
-  EEPROM.write(0,ph);
-  EEPROM.write(1,pm);
+void setbud(int n,int ph,int pm){
+  EEPROM.write(n*2,ph);
+  EEPROM.write(n*2+1,pm);
   EEPROM.commit();
  } 
 

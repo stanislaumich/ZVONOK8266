@@ -111,7 +111,7 @@ String execCommand(String chat_id, String text){
       }else{
       String sh = getValue(text,' ',1);
       String sm = getValue(text,' ',2);
-      setbud(sh.toInt(),sm.toInt());
+      setbud(0, sh.toInt(),sm.toInt());
       mess+="set to "+sh+':'+sm;
       }
       answ="+Ok /bud "+mess;
