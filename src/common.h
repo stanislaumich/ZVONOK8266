@@ -73,23 +73,26 @@ void Button(int b){
  switch(b){
   case 0: 
     #ifdef redpin
-     state=digitalRead(redpin);
-     digitalWrite(redpin,!state);
+     //state=digitalRead(redpin);
+     //digitalWrite(redpin,!state);
+     digitalWrite(redpin,!digitalRead(redpin));
     #endif
     break;
   case 1: 
     #ifdef bluepin
-     state=digitalRead(bluepin);
-     digitalWrite(bluepin,!state);
+     //state=digitalRead(bluepin);
+     //digitalWrite(bluepin,!state);
+     digitalWrite(bluepin,!digitalRead(bluepin));
     #endif
     break;
   case 2: 
     #ifdef greenpin
-     state=digitalRead(greenpin);
-     digitalWrite(greenpin,!state);
+     //state=digitalRead(greenpin);
+     //digitalWrite(greenpin,!state);
+     digitalWrite(greenpin,!digitalRead(greenpin));
     #endif
     break;
- }
+  }
  }
 
 void beep(int t1,int t2){
@@ -105,7 +108,17 @@ void beep(int t1,int t2){
    digitalWrite(pinbeep,LOW);
   #endif
  }
-
+void shortbeep(void){
+  beep(125,50);
+ }
+void longbeep(void){
+  beep(250,250);
+ }
+void dshortbeep(void){
+  shortbeep();
+  delay(50);
+  shortbeep(); 
+ } 
 void mLog(String s){
   #ifdef Serialmy
    Serial.println(s);

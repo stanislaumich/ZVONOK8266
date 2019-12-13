@@ -1,6 +1,5 @@
-//#include <Arduino.h>
+#ifndef meWeb
 #include <ESP8266WiFi.h>
-//#include <WiFiClient.h>
 #include <WiFiClientSecure.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266HTTPUpdateServer.h>
@@ -17,16 +16,16 @@
  #include "defs.h"
  #endif
 #ifdef Lz428266ZV 
-#ifndef myRTC
- #include "myRTC.h"
- #endif
-#endif 
-#ifndef mySSDP
-  #include"mySSDP.h"
+ #ifndef myRTC
+   #include "myRTC.h"
+  #endif
  #endif 
- #ifndef myTime
-   #include "myTime.h"
+#ifndef mySSDP
+   #include"mySSDP.h"
   #endif 
+#ifndef myTime
+  #include "myTime.h"
+ #endif 
 ESP8266WebServer httpServer(80);
 ESP8266HTTPUpdateServer httpUpdater;
 File fsUploadFile;
@@ -149,8 +148,8 @@ void handleFileList() {
  }
 
 void handle_Button() {
-  //int state = httpServer.arg("state").toInt();
-  //Button(state);
+  int state = httpServer.arg("state").toInt();
+  Button(state);
   httpServer.sendHeader("Connection", "close");
   httpServer.send(200, "text/plain", "Ok");  
  }
@@ -167,12 +166,8 @@ String alert_h(){
  }
 
 String XmlTime(void) {
-  String Time ="";
-  time_t t = ntp_time;//rtc.now().get(); //DateTime
-  uint16_t m = ( t / 60 ) % 60;
-  uint16_t h = ( t / 3600 ) % 24;
-  Time+= (String)h+":";
-  Time+= (String)m; 
+  String Time= (hour<10?"0":"")+(String)hour+":";
+  Time+= (mins<10?"0":"")+(String)mins; 
   return Time;
  }
 void handle_Time() {
@@ -225,7 +220,6 @@ void handlereboot(){
   ESP.restart();
  }
 void handleShowTime(void){
-  //screentimeout=50000;
   String s="Long time ago...";
   Log(s);
   httpServer.sendHeader("Connection", "close");
@@ -259,5 +253,8 @@ void initWeb(void){
       httpServer.send(404, "text/plain", "FileNotFound");      
   });
   httpServer.begin();
-  //Serial.print("HTTPUpdateServer ready! Open http://IP/update in your browser\n");
+  #ifdef Serialmy
+   Serial.print("HTTPUpdateServer ready! Open http://IP/update in your browser\n");
+  #endif
  }
+ #endif

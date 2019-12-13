@@ -6,11 +6,11 @@
 #ifndef defs
   #include "defs.h"
  #endif 
-#ifdef Lz428266WR
+//#ifdef Lz428266WR
  #ifndef myTime
    #include "myTime.h"
   #endif
- #endif
+// #endif
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 #include <UniversalTelegramBot.h>
@@ -122,7 +122,7 @@ String execCommand(String chat_id, String text){
     } 
 
     if (text == "/beep") {
-      beep(250,125);
+      longbeep();
       answ="+Ok /beep";
     }
     if (text == "/chat") {

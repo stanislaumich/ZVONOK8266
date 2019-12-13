@@ -42,6 +42,7 @@ void ticktime(){
 }
 
 void reboot(void){
+  longbeep();
   ESP.restart();   
  }
 
@@ -49,7 +50,7 @@ void setup(){
   initCommon();
   Ttickclock.stop();
   Treboot.stop();
-  beep(125,50);
+  shortbeep();
   initWiFi();
   initTime();
   #ifdef Lz428266ZV ///////////////////////////////////////////////////////
@@ -69,9 +70,7 @@ void setup(){
   initWeb();
   MyTeleBotInit();
   bot.sendMessage(myTele, "Бот запущен: "+IP_to_String(WiFi.localIP()), "");
-  beep(125,50);
-  delay(50);
-  beep(125,50); 
+  dshortbeep();
  }
 
 void loop (){
