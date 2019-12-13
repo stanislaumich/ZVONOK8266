@@ -1,11 +1,15 @@
 #define lcd1602
 #ifdef Lz428266ZV
-/*#ifndef myRTC
- #include "myRTC.h"
- #endif*/
+#ifndef defs
+ #include "defs.h"
+ #endif
 #endif 
+#ifndef myTime
+  #include "myTime.h"
+ #endif 
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);
+int acnt;
 uint8_t s1[8] =
 {
   B00000,
@@ -48,10 +52,19 @@ uint8_t s4[8] =
 };
 
 void showtime(void){
-
-
+  lcd.setCursor(0, 1);
+  if (hour<10){lcd.print("0");}
+  lcd.print(hour);
+  lcd.print(":");
+  if (mins<10){lcd.print("0");}
+  lcd.print(mins);
+  lcd.print(":");
+  if (sec<10){lcd.print("0");}
+  lcd.print(sec);
  }
 
+void screenon(void){}
+void screenoff(void){}
 void initLCD1602(){
   lcd.begin(5, 4);
   lcd.createChar(1, s1);  
@@ -66,11 +79,11 @@ void initLCD1602(){
 }
 
 void tickclock(void){
- switch(cnt){
-    case 0: lcd.print("\2");cnt+=1;break;
-    case 1: lcd.print("\3");cnt+=1;break;
-    case 2: lcd.print("\4");cnt+=1;break;
-    case 3: lcd.print("\1");cnt+=1;break;
-    case 4: lcd.print("\2");cnt+=1; cnt=1;break;
+  switch(acnt){
+    case 0: lcd.print("\2");acnt+=1;break;
+    case 1: lcd.print("\3");acnt+=1;break;
+    case 2: lcd.print("\4");acnt+=1;break;
+    case 3: lcd.print("\1");acnt+=1;break;
+    case 4: lcd.print("\2");acnt+=1; acnt=1;break;
    }
 }

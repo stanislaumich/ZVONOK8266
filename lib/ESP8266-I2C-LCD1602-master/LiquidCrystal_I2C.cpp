@@ -88,7 +88,7 @@ void LiquidCrystal_I2C::begin(uint8_t sda, uint8_t scl) {
 	// set the entry mode
 	command(LCD_ENTRYMODESET | _displaymode);
 	
-	home();
+	//home();
 }
 
 /********** high level commands, for the user! */
