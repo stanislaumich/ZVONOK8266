@@ -4,8 +4,8 @@
  #include "defs.h"
  #endif
 #endif 
-#ifndef myTime
-  #include "myTime.h"
+#ifndef common
+  #include "common.h"
  #endif 
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);
