@@ -56,9 +56,9 @@
  #ifdef work
   IPAddress ip(192,168,0,235);
  #endif
-  #ifndef myRTC
+  /*#ifndef myRTC
   #include "myRTC.h"
-  #endif
+  #endif*/
  #ifndef lcd1602
   #include "lcd1602.h"
   #endif
