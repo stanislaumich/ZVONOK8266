@@ -22,7 +22,7 @@
 void showtime(void);
 unsigned long prev=0;
 void ticktime(){
- #ifdef Lz428266ZV
+ /*#ifdef Lz428266ZV
   hour = rtc.now().hour();
   mins = rtc.now().minute();
   sec = rtc.now().second();
@@ -30,14 +30,14 @@ void ticktime(){
   month = rtc.now().month();
   year = rtc.now().year();
   wd = rtc.now().weekday();
- #else
+ #else*/
   timeClient.update();
   hour=timeClient.getHours();
   mins=timeClient.getMinutes();
   sec=timeClient.getSeconds();
   wd=timeClient.getDay();
   if (isbud()){bud();}
- #endif
+ //#endif
   showtime();
   if ((sec>=0&&sec<=2)&&mins==0){chime();}
 }
@@ -55,7 +55,7 @@ void setup(){
   initWiFi();
   initTime();
   #ifdef Lz428266ZV ///////////////////////////////////////////////////////
-   initRTC();
+   //initRTC();
    initLCD1602();
   #endif //////////////////////////////////////////////////////////////////
   #ifdef Lz428266YE ///////////////////////////////////////////////////////

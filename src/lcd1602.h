@@ -1,8 +1,8 @@
 #define lcd1602
 #ifdef Lz428266ZV
-#ifndef myRTC
+/*#ifndef myRTC
  #include "myRTC.h"
- #endif
+ #endif*/
 #endif 
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);

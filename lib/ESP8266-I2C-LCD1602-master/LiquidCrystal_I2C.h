@@ -84,7 +84,7 @@ public:
 	/**
 	 * Next print/write operation will will start from the first position on the LCD display.
 	 */
-	void home();
+	//void home();
 
 	 /**
 	  * Do not show any characters on the LCD display. Backlight state will remain unchanged.
