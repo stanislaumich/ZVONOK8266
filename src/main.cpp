@@ -39,6 +39,7 @@ void ticktime(){
   if (isbud()){bud();}
  #endif
   showtime();
+  if (sec==0){chime();}
 }
 
 void reboot(void){

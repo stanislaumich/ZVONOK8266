@@ -133,6 +133,14 @@ String execCommand(String chat_id, String text){
       screenoff();
       answ="+Ok /off screen";
     }
+    if (text == "/chon") {
+      chimeon();
+      answ="+Ok /on chime";
+    }
+    if (text == "/choff") {
+      chimeoff();
+      answ="+Ok /off chime";
+    }
     if (text == "/chat") {
       answ="+Ok /chat="+chat_id;
     }
@@ -161,7 +169,7 @@ String execCommand(String chat_id, String text){
       answ="+Ok system is going to reboot after 1 minute";
     }
 
-    if (text == "/start") {
+    if (text == "/?") {
       String welcome = "Arduino 8266 UNO Bot, " + from_name + ".\n";
       welcome += "/b1 : to switch the button N\n";
       welcome += "/beep : to beep\n";

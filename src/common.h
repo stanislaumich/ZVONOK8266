@@ -33,14 +33,42 @@ int year;
 bool syncgood = false;
 bool budactiv = false;
 volatile int cnt = 0;
-
+bool chimeison=true;
 
 #define budlen 200
 #define budton 200
 #define budpause 200
 #define budcount 5
-void beep(int t1,int t2);
+void beep(int t1,int t2){
+  #ifdef pinbeep
+   unsigned long h;
+   h=millis();
+   while (millis()-h<(unsigned int)(t1)){
+    digitalWrite(pinbeep,HIGH);
+    delayMicroseconds(t2);
+    digitalWrite(pinbeep,LOW);
+    delayMicroseconds(t2);
+   }
+   digitalWrite(pinbeep,LOW);
+  #endif
+ }
+void shortbeep(void){
+  beep(125,50);
+ }
+void longbeep(void){
+  beep(250,250);
+ }
+void dshortbeep(void){
+  shortbeep();
+  delay(50);
+  shortbeep(); 
+ } 
 
+void chimeon(void){chimeison=true;}
+void chimeoff(void){chimeison=false;}
+void chime(void){
+  if (chimeison){shortbeep();}
+}
 void setbud(int n,int ph,int pm){
   EEPROM.write(n*2,ph);
   EEPROM.write(n*2+1,pm);
@@ -57,9 +85,9 @@ void bud(void){
  for (int i=1;i<=budcount;i++){
   beep(budlen,budton);
   delay(budpause);
+  }
+  budactiv=false;
  }
- budactiv=false;
-}
 
 bool isbud(){
   if (getbud(0)==0&&getbud(1)==0){return false;}
@@ -95,30 +123,7 @@ void Button(int b){
   }
  }
 
-void beep(int t1,int t2){
-  #ifdef pinbeep
-   unsigned long h;
-   h=millis();
-   while (millis()-h<(unsigned int)(t1)){
-    digitalWrite(pinbeep,HIGH);
-    delayMicroseconds(t2);
-    digitalWrite(pinbeep,LOW);
-    delayMicroseconds(t2);
-   }
-   digitalWrite(pinbeep,LOW);
-  #endif
- }
-void shortbeep(void){
-  beep(125,50);
- }
-void longbeep(void){
-  beep(250,250);
- }
-void dshortbeep(void){
-  shortbeep();
-  delay(50);
-  shortbeep(); 
- } 
+
 void mLog(String s){
   #ifdef Serialmy
    Serial.println(s);
