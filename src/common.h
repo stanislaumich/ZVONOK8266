@@ -67,7 +67,7 @@ void dshortbeep(void){
 void chimeon(void){chimeison=true;}
 void chimeoff(void){chimeison=false;}
 void chime(void){
-  if (chimeison){shortbeep();}
+  if (chimeison){longbeep();}
 }
 void setbud(int n,int ph,int pm){
   EEPROM.write(n*2,ph);
