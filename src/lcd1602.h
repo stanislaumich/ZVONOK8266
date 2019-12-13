@@ -52,7 +52,7 @@ uint8_t s4[8] =
 };
 
 void showtime(void){
-  lcd.setCursor(0, 1);
+  lcd.setCursor(0, 0);
   if (hour<10){lcd.print("0");}
   lcd.print(hour);
   lcd.print(":");

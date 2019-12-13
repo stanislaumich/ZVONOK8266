@@ -50,7 +50,10 @@
  String myName="Lz428266ZV";
  String myToken="1024759432:AAEqPfDzbySApHVRp5cyqKg2uz6HRGGak9U";
  #define pinbeep 14
-  #ifdef home
+ #define bluepin 13
+ #define greenpin 12
+ #define redpin 15
+ #ifdef home
   IPAddress ip(192,168,1,238); 
  #endif
  #ifdef work
