@@ -129,10 +129,19 @@ String execCommand(String chat_id, String text){
       screenon();
       answ="+Ok /on screen";
     }
-    if (text == "/off") {
+     if (text == "/off") {
       screenoff();
       answ="+Ok /off screen";
     }
+    if (text == "/ron") {
+      ron();
+      answ="+Ok /on relay";
+    }
+    if (text == "/roff") {
+      roff();
+      answ="+Ok /off relay";
+    }
+   
     if (text == "/chon") {
       chimeon();
       answ="+Ok /on chime";

@@ -94,7 +94,8 @@ bool isbud(){
   return getbud(0)==hour&&getbud(1)==mins&&sec<10;
  }
 
-
+void ron(void){digitalWrite(relay1pin,HIGH);}
+void roff(void){digitalWrite(relay1pin,LOW);}
 
 void Button(int b){
  int state;
@@ -147,6 +148,10 @@ void initCommon(void){
    #endif
   #ifdef greenpin
     pinMode(greenpin,OUTPUT);
-   #endif 
+   #endif
+  #ifdef relay1pin
+   pinMode(relay1pin,OUTPUT);
+   #endif   
  }
+ 
 #endif

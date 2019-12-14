@@ -53,6 +53,7 @@
  #define bluepin 13
  #define greenpin 12
  #define redpin 15
+ #define relay1pin 16
  #ifdef home
   IPAddress ip(192,168,1,238); 
  #endif
