@@ -74,7 +74,7 @@
  String myToken="686030737:AAGN2_GY_wem10zGwNWYP7KyajTta5qpb2Y";
  #define pinbeep D7
   #ifdef home
-  IPAddress ip(192,168,1,235); 
+  IPAddress ip(192,168,1,235);//235 
  #endif
  #ifdef work
   IPAddress ip(192,168,0,235);

@@ -63,7 +63,17 @@ void dshortbeep(void){
   delay(50);
   shortbeep(); 
  } 
-
+void siren(void){
+ int dir;
+ for(int i=0;i<=6;i++ ){//up-down
+  for(int j=0;j<100;j++){
+   beep(50,50+j*2);
+  }
+  for(int j=0;j<100;j++){
+   beep(50,50+100*2-j*2);
+  }
+ }
+ }
 void chimeon(void){chimeison=true;}
 void chimeoff(void){chimeison=false;}
 void chime(void){

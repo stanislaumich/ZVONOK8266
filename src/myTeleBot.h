@@ -102,6 +102,10 @@ String execCommand(String chat_id, String text){
       Button(2);
       answ="+Ok /b2";
     }
+    if (text == "/siren") {
+      siren();
+      answ="+Ok /siren";
+    } 
     /*
     if (text.indexOf("=")==0) {
       answerbot(chat_id, text);      
