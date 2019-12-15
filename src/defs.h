@@ -79,9 +79,10 @@
  #ifdef work
   IPAddress ip(192,168,0,235);
  #endif
- #ifndef myTime
+/* #ifndef myTime
    #include "myTime.h"
   #endif
+  */
  #ifndef myVFD
   #include "myVFD.h"
   #endif

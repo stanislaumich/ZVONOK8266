@@ -11,6 +11,11 @@
    #include "myTime.h"
   #endif
 // #endif
+#ifdef Lz428266VFD
+ #ifndef myVFD
+   #include "myVFD.h"
+  #endif
+ #endif
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 #include <UniversalTelegramBot.h>

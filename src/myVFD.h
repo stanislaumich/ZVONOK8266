@@ -14,6 +14,7 @@
 #define VFD_BYTES_PER_DIGIT 3  //3
 PT6311 pt6311_driver;
 
+bool scron=true;
 
 void write_raw(uint8_t value, uint8_t number_of_bytes) 
 {
@@ -141,12 +142,19 @@ void emptyscreen(void){
   }
 }
 
+void screenon(void){
+  scron=true;
+}
+void screenoff(void){
+  emptyscreen();
+  scron=false;
+}
 void tickclock(void){
   // тут вращение фигулины
  }
 
  void showtime(void){
-  showtime2(hour, mins);
+  if (scron){showtime2(hour, mins);}
  }
 
 void initmyVFD(void){

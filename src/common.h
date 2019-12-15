@@ -94,8 +94,16 @@ bool isbud(){
   return getbud(0)==hour&&getbud(1)==mins&&sec<10;
  }
 
-void ron(void){digitalWrite(relay1pin,HIGH);}
-void roff(void){digitalWrite(relay1pin,LOW);}
+void ron(void){
+  #ifdef relay1pin
+  digitalWrite(relay1pin,HIGH);
+  #endif
+ } 
+void roff(void){
+  #ifdef relay1pin
+  digitalWrite(relay1pin,LOW);
+  #endif
+ }
 
 void Button(int b){
  int state;
