@@ -12,7 +12,8 @@ void tickclock(void){
 
   
  }
-
+ void screenon(void){}
+ void screenoff(void){}
  void showtime(void){
   #ifdef Lz428266WR
    

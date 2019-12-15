@@ -1,9 +1,9 @@
 #ifndef common
 #define common
 #include <Arduino.h>
-#ifndef place
-  #include "place.h"
- #endif
+//#ifndef place
+//  #include "place.h"
+// #endif
 #ifndef defs
   #include "defs.h"
  #endif
@@ -65,14 +65,14 @@ void dshortbeep(void){
  } 
 void siren(void){
  int dir;
- for(int i=0;i<=6;i++ ){//up-down
+ /*for(int i=0;i<=6;i++ ){//up-down
   for(int j=0;j<100;j++){
    beep(50,50+j*2);
   }
   for(int j=0;j<100;j++){
    beep(50,50+100*2-j*2);
   }
- }
+ }*/
  }
 void chimeon(void){chimeison=true;}
 void chimeoff(void){chimeison=false;}
