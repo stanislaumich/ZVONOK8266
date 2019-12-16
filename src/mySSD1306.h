@@ -3,18 +3,21 @@
 #include "SSD1306.h"
 #include "font_orbitum_32.h"
 #define fnt Orbitron_Medium_32 //24 w secs
+#ifndef place
+  #include "place.h"
+ #endif
 #ifndef defs
  #include "defs.h"
  #endif
 #ifndef common
  #include "common.h"
  #endif 
-#ifndef MyTeleBot
-  #include "myTeleBot.h"
- #endif
-#ifndef myTime
-  #include "myTime.h"
-  #endif
+//#ifndef MyTeleBot
+//  #include "myTeleBot.h"
+// #endif
+//#ifndef myTime
+//  #include "myTime.h"
+//  #endif
 #define OLED_SDA    5  // pin 14 gpio5!
 #define OLED_SDC    4  // pin 12 gpio4!
 #define OLED_ADDR   0x3C

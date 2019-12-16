@@ -1,21 +1,20 @@
 #define nodisplay
 #ifndef defs
- #include "defs.h"
+#ifndef place
+  #include "place.h"
  #endif
 #ifndef common
  #include "common.h"
- #endif 
-#ifndef MyTeleBot
-  #include "myTeleBot.h"
- #endif 
-void tickclock(void){
+ #endif
+#ifndef defs
+ #include "defs.h"
+ #endif
 
-  
- }
- void screenon(void){}
- void screenoff(void){}
- void showtime(void){
-  #ifdef Lz428266WR
-   
+
+void tickclock(void){ }
+void screenon(void){}
+void screenoff(void){}
+void showtime(void){
+ #ifdef Lz428266WR
   #endif
  }

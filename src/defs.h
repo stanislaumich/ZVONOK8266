@@ -37,9 +37,6 @@
  #ifdef work
   IPAddress ip(192,168,0,235);
  #endif
-  #ifndef myTime
-  #include "myTime.h"
-  #endif
  #ifndef mySSD1306
   #include "mySSD1306.h"
   #endif

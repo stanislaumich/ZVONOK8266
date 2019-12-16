@@ -6,11 +6,10 @@
 #ifndef defs
   #include "defs.h"
  #endif 
-//#ifdef Lz428266WR
  #ifndef myTime
    #include "myTime.h"
   #endif
-// #endif
+
 #ifdef Lz428266VFD
  #ifndef myVFD
    #include "myVFD.h"
