@@ -91,18 +91,49 @@ String execCommand(String chat_id, String text){
       Button(1);
       answ="+Ok /b1";
     }
+    
+    if (text.indexOf("/e")==0){
+       int bott=235; //низ        
+       int x1=5;
+       int x2=20;
+       String ts = getValue(text,' ',1);
+       int y1=bott-((ts.toInt()-720)*3.5);
+       int y2=bott-y1;
+       String zz="b "+String(x1)+' '+String(y1)+' '+String(x2)+' '+String(y2)+String(" 1865539");
+       Serial.println(zz);
+       Serial.println("t 225 10 1865539 5 "+ts);
+       delay(200);
 
+      while (Serial.available()>0){
+      ts=Serial.readString();
+      }      
+      answ = zz+" answ: "+ts;
+    }
     if (text.indexOf("/s")==0){
+      //  /s t 225 10 1865539 5 755
+      //  /s b 5 50 15 185 25 лево верх ширина высота цвет
+      //  int w=10 ширина
+      //  int d=2  расстояние
+      //  int bot=235 низ
+      //   верх=низ - приведенное значение
+      //  сумма в высоту - 235
+      //  
+      //
+      //
+  
+
       String txt= getValue(text,' ',1);
       txt+=' '+getValue(text,' ',2);
       txt+=' '+getValue(text,' ',3);
       txt+=' '+getValue(text,' ',4);
       txt+=' '+getValue(text,' ',5);
+      txt+=' '+getValue(text,' ',6);
       Serial.println(txt);
       answ = "+Ok send text: "+txt;
       txt="";
+      delay(200);
       while (Serial.available()>0){
-       txt+=Serial.read();
+       txt+=Serial.readString();
       }      
       answ += " answ: "+txt;    
       }
