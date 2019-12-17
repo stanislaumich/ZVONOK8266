@@ -92,6 +92,22 @@ String execCommand(String chat_id, String text){
       answ="+Ok /b1";
     }
 
+    if (text.indexOf("/s")==0){
+      String txt= getValue(text,' ',1);
+      txt+=' '+getValue(text,' ',2);
+      txt+=' '+getValue(text,' ',3);
+      txt+=' '+getValue(text,' ',4);
+      txt+=' '+getValue(text,' ',5);
+      Serial.println(txt);
+      answ = "+Ok send text: "+txt;
+      txt="";
+      while (Serial.available()>0){
+       txt+=Serial.read();
+      }      
+      answ += " answ: "+txt;    
+      }
+
+
     if (text=="/t"){
       //answ = "+Ok "+hour+(String)":"+mins+(String)":"+sec+(String)" "+day+(String)"."+month+(String)"."+year+(String)" "+wd;
       answ = "+Ok time: "+getTimestr();    

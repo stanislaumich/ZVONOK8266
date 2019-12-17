@@ -12,7 +12,7 @@
 #include <EEPROM.h>
 
 
-#undef Serialmy
+#define Serialmy
 #define updint 1000
 
 GTimer_ms Tticktime(updint);
@@ -107,12 +107,12 @@ bool isbud(){
 
 void ron(void){
   #ifdef relay1pin
-  digitalWrite(relay1pin,HIGH);
+   digitalWrite(relay1pin,HIGH);
   #endif
  } 
 void roff(void){
   #ifdef relay1pin
-  digitalWrite(relay1pin,LOW);
+   digitalWrite(relay1pin,LOW);
   #endif
  }
 
@@ -121,22 +121,16 @@ void Button(int b){
  switch(b){
   case 0: 
     #ifdef redpin
-     //state=digitalRead(redpin);
-     //digitalWrite(redpin,!state);
      digitalWrite(redpin,!digitalRead(redpin));
     #endif
     break;
   case 1: 
     #ifdef bluepin
-     //state=digitalRead(bluepin);
-     //digitalWrite(bluepin,!state);
      digitalWrite(bluepin,!digitalRead(bluepin));
     #endif
     break;
   case 2: 
     #ifdef greenpin
-     //state=digitalRead(greenpin);
-     //digitalWrite(greenpin,!state);
      digitalWrite(greenpin,!digitalRead(greenpin));
     #endif
     break;
@@ -146,14 +140,14 @@ void Button(int b){
 
 void mLog(String s){
   #ifdef Serialmy
-   Serial.println(s);
+   //Serial.println(s);
   #endif 
  }
 
 void initCommon(void){
-   #ifdef Serialmy
+   //#ifdef Serialmy
     Serial.begin(115200); 
-   #endif
+   //#endif
   EEPROM.begin(512);
   #ifdef pinbeep
     pinMode(pinbeep,OUTPUT);
