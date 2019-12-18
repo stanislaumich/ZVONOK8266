@@ -15,6 +15,11 @@
    #include "myVFD.h"
   #endif
  #endif
+#ifdef Lz428266YE
+ #ifndef myBMP280
+   #include "myBMP280.h"
+  #endif
+ #endif 
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 #include <UniversalTelegramBot.h>
@@ -86,6 +91,10 @@ String execCommand(String chat_id, String text){
       debug=!debug;
       debug?answ="+ debug now TRUE":answ="+ debug now FALSE";
     }
+    
+    if (text == "/temp") {
+      answ="+ temp="+ String(gettemp());
+    } 
 
     if (text == "/b1") {
       Button(1);

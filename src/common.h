@@ -15,6 +15,8 @@
 #define Serialmy
 #define updint 1000
 
+bool bmpgood=false;
+
 GTimer_ms Tticktime(updint);
 GTimer_ms Ttickclock(250);
 GTimer_ms Treboot(250000);
