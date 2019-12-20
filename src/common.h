@@ -169,6 +169,6 @@ void initCommon(void){
    #endif   
  }
  #ifndef myBMP280
-  float gettemp(void){return -3.14;}
+  float gettemp(void){return -6.28;}
  #endif
 #endif
