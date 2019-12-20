@@ -168,5 +168,7 @@ void initCommon(void){
    pinMode(relay1pin,OUTPUT);
    #endif   
  }
- 
+ #ifndef myBMP280
+  float gettemp(void){return -3.14;}
+ #endif
 #endif
