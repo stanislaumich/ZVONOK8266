@@ -91,11 +91,11 @@ String execCommand(String chat_id, String text){
       debug=!debug;
       debug?answ="+ debug now TRUE":answ="+ debug now FALSE";
     }
-    
+    /*
     if (text == "/temp") {
       answ="+ temp="+ String(gettemp());
     } 
-
+    */
     if (text == "/b1") {
       Button(1);
       answ="+Ok /b1";
