@@ -1,9 +1,6 @@
 #ifndef common
 #define common
 #include <Arduino.h>
-//#ifndef place
-//  #include "place.h"
-// #endif
 #ifndef defs
   #include "defs.h"
  #endif
@@ -67,15 +64,7 @@ void dshortbeep(void){
   shortbeep(); 
  } 
 void siren(void){
- int dir;
- /*for(int i=0;i<=6;i++ ){//up-down
-  for(int j=0;j<100;j++){
-   beep(50,50+j*2);
-  }
-  for(int j=0;j<100;j++){
-   beep(50,50+100*2-j*2);
-  }
- }*/
+
  }
 void chimeon(void){chimeison=true;}
 void chimeoff(void){chimeison=false;}
@@ -91,7 +80,6 @@ void setbud(int n,int ph,int pm){
 int getbud(int p){
   return EEPROM.read(p);
  }
-
 
 void bud(void){
  budactiv=true; 
@@ -119,7 +107,6 @@ void roff(void){
  }
 
 void Button(int b){
- int state;
  switch(b){
   case 0: 
     #ifdef redpin
@@ -142,14 +129,14 @@ void Button(int b){
 
 void mLog(String s){
   #ifdef Serialmy
-   //Serial.println(s);
+   Serial.println(s);
   #endif 
  }
 
 void initCommon(void){
-   //#ifdef Serialmy
+   #ifdef Serialmy
     Serial.begin(115200); 
-   //#endif
+   #endif
   EEPROM.begin(512);
   #ifdef pinbeep
     pinMode(pinbeep,OUTPUT);

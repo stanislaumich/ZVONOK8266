@@ -18,8 +18,7 @@
   #include "myTeleBot.h"
  #endif  
 #ifdef Lz428266YE
-  #include "myBMP280.h"
-  
+  //#include "myBMP280.h"  
  #endif 
 
 void showtime(void);
@@ -58,7 +57,7 @@ void setup(){
   initWiFi();
   initTime();
   #ifdef Lz428266ZV ///////////////////////////////////////////////////////
-   bmpgood =initmyBMP280();
+   //bmpgood =initmyBMP280();
    initLCD1602();
   #endif //////////////////////////////////////////////////////////////////
   #ifdef Lz428266YE ///////////////////////////////////////////////////////
