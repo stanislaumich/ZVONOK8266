@@ -20,7 +20,7 @@
 #ifdef Lz428266YE
   //#include "myBMP280.h"  
  #endif 
-
+void dummy(void){}
 void showtime(void);
 unsigned long prev=0;
 void ticktime(){
@@ -38,10 +38,10 @@ void ticktime(){
   mins=timeClient.getMinutes();
   sec=timeClient.getSeconds();
   wd=timeClient.getDay();
-  if (isbud()){bud();}
+  isbud()?bud():dummy();
  //#endif
   showtime();
-  if ((sec>=0&&sec<=2)&&mins==0){chime();}
+  if ((sec>=0&&sec<=1)&&mins==0){chime();}
 }
 
 void reboot(void){
